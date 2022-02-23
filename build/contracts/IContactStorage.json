@@ -1,0 +1,1505 @@
+{
+  "contractName": "IContactStorage",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "sender",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint8",
+          "name": "currentContactId",
+          "type": "uint8"
+        }
+      ],
+      "name": "ContactAdded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "sender",
+          "type": "address"
+        }
+      ],
+      "name": "ContactDeleted",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "sender",
+          "type": "address"
+        }
+      ],
+      "name": "ContactModified",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "internalType": "string",
+          "name": "contactInfo",
+          "type": "string"
+        }
+      ],
+      "name": "setContact",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "internalType": "uint8",
+          "name": "deletedContactId",
+          "type": "uint8"
+        }
+      ],
+      "name": "deleteContact",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "internalType": "uint8",
+          "name": "modifiedContactId",
+          "type": "uint8"
+        },
+        {
+          "internalType": "string",
+          "name": "modifiedContactInfo",
+          "type": "string"
+        }
+      ],
+      "name": "modifyContact",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "internalType": "uint8",
+          "name": "contactId",
+          "type": "uint8"
+        }
+      ],
+      "name": "getContact",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "contactInfo",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.11+commit.d7f03943\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint8\",\"name\":\"currentContactId\",\"type\":\"uint8\"}],\"name\":\"ContactAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"ContactDeleted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"ContactModified\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"uint8\",\"name\":\"deletedContactId\",\"type\":\"uint8\"}],\"name\":\"deleteContact\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"uint8\",\"name\":\"contactId\",\"type\":\"uint8\"}],\"name\":\"getContact\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"contactInfo\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"uint8\",\"name\":\"modifiedContactId\",\"type\":\"uint8\"},{\"internalType\":\"string\",\"name\":\"modifiedContactInfo\",\"type\":\"string\"}],\"name\":\"modifyContact\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"contactInfo\",\"type\":\"string\"}],\"name\":\"setContact\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"events\":{\"ContactAdded(address,uint8)\":{\"params\":{\"currentContactId\":\"The id of added contact\",\"sender\":\"The address who added contact\"}},\"ContactDeleted(address)\":{\"params\":{\"sender\":\"The address who deleted contact\"}},\"ContactModified(address)\":{\"params\":{\"sender\":\"The address who modified contact\"}}},\"kind\":\"dev\",\"methods\":{\"deleteContact(address,uint8)\":{\"params\":{\"account\":\"Address of user deleting the contact\",\"deletedContactId\":\"The Id of contact to be deleted isAddressOwner modifier must be provided\"}},\"getContact(address,uint8)\":{\"params\":{\"account\":\"Address of the user you want to retrieve contact\",\"contactId\":\"The id of contact you want to retrieve\"},\"returns\":{\"contactInfo\":\"String containing the contact information\"}},\"modifyContact(address,uint8,string)\":{\"params\":{\"account\":\"Address of user modifying the contact\",\"modifiedContactId\":\"The id of contact to be modified\",\"modifiedContactInfo\":\"String containing modified contact information isAddressOwner modifier must be provided\"}},\"setContact(address,string)\":{\"params\":{\"account\":\"Address of user storing the contact\",\"contactInfo\":\"String containing contact information isAddressOwner modifier must be provided\"}}},\"version\":1},\"userdoc\":{\"events\":{\"ContactAdded(address,uint8)\":{\"notice\":\"Emitted when contact is added\"},\"ContactDeleted(address)\":{\"notice\":\"Emitted when contact is deleted\"},\"ContactModified(address)\":{\"notice\":\"Emitted when contact is modified\"}},\"kind\":\"user\",\"methods\":{\"deleteContact(address,uint8)\":{\"notice\":\"Delete contact, can only be owner of account addres\"},\"getContact(address,uint8)\":{\"notice\":\"Retrieve data of a specific contact information\"},\"modifyContact(address,uint8,string)\":{\"notice\":\"Modify contact information, can only be owner of account addres\"},\"setContact(address,string)\":{\"notice\":\"Store contact information, can only be owner of account addres\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/interfaces/IContactStorage.sol\":\"IContactStorage\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/interfaces/IContactStorage.sol\":{\"keccak256\":\"0x2b815c4eb6e04560879672156dc9462fb16e667109ce4b54dcbe6b874fe0026c\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7d86ba37a3963a39903e3c6e94d1fcebd1c88abdc9891d916bfd2201266cb95d\",\"dweb:/ipfs/QmUTp1851pDFzaeUmQHAK81PZJpXDZe44GhTBjabMD6xHT\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\n\npragma solidity >=0.7.0 <0.9.0;\n\ninterface IContactStorage {\n    /// @notice Store contact information, can only be owner of account addres\n    /// @param account Address of user storing the contact\n    /// @param contactInfo String containing contact information\n    /// isAddressOwner modifier must be provided\n    function setContact(address account, string memory contactInfo) external;\n\n    /// @notice Delete contact, can only be owner of account addres\n    /// @param account Address of user deleting the contact\n    /// @param deletedContactId The Id of contact to be deleted\n    /// isAddressOwner modifier must be provided\n    function deleteContact(address account, uint8 deletedContactId) external;\n\n    /// @notice Modify contact information, can only be owner of account addres\n    /// @param account Address of user modifying the contact\n    /// @param modifiedContactId The id of contact to be modified\n    /// @param modifiedContactInfo String containing modified contact information\n    /// isAddressOwner modifier must be provided\n    function modifyContact(\n        address account,\n        uint8 modifiedContactId,\n        string memory modifiedContactInfo\n    ) external;\n\n    /// @notice Retrieve data of a specific contact information\n    /// @param account Address of the user you want to retrieve contact\n    /// @param contactId The id of contact you want to retrieve\n    /// @return contactInfo String containing the contact information\n    function getContact(address account, uint8 contactId)\n        external\n        view\n        returns (string memory contactInfo);\n\n    /// @notice Emitted when contact is added\n    /// @param sender The address who added contact\n    /// @param currentContactId The id of added contact\n    event ContactAdded(address sender, uint8 currentContactId);\n\n    /// @notice Emitted when contact is deleted\n    /// @param sender The address who deleted contact\n    event ContactDeleted(address sender);\n\n    /// @notice Emitted when contact is modified\n    /// @param sender The address who modified contact\n    event ContactModified(address sender);\n}\n",
+  "sourcePath": "/Users/MBN/Desktop/Projects/my-contacts-app-smart-contracts/contracts/interfaces/IContactStorage.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/interfaces/IContactStorage.sol",
+    "exportedSymbols": {
+      "IContactStorage": [
+        211
+      ]
+    },
+    "id": 212,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 157,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.7",
+          ".0",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:31:1"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IContactStorage",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 211,
+        "linearizedBaseContracts": [
+          211
+        ],
+        "name": "IContactStorage",
+        "nameLocation": "76:15:1",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "documentation": {
+              "id": 158,
+              "nodeType": "StructuredDocumentation",
+              "src": "98:247:1",
+              "text": "@notice Store contact information, can only be owner of account addres\n @param account Address of user storing the contact\n @param contactInfo String containing contact information\n isAddressOwner modifier must be provided"
+            },
+            "functionSelector": "71e48b80",
+            "id": 165,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setContact",
+            "nameLocation": "359:10:1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 163,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 160,
+                  "mutability": "mutable",
+                  "name": "account",
+                  "nameLocation": "378:7:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 165,
+                  "src": "370:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 159,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "370:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 162,
+                  "mutability": "mutable",
+                  "name": "contactInfo",
+                  "nameLocation": "401:11:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 165,
+                  "src": "387:25:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 161,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "387:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "369:44:1"
+            },
+            "returnParameters": {
+              "id": 164,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "422:0:1"
+            },
+            "scope": 211,
+            "src": "350:73:1",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 166,
+              "nodeType": "StructuredDocumentation",
+              "src": "429:236:1",
+              "text": "@notice Delete contact, can only be owner of account addres\n @param account Address of user deleting the contact\n @param deletedContactId The Id of contact to be deleted\n isAddressOwner modifier must be provided"
+            },
+            "functionSelector": "6f5f316a",
+            "id": 173,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "deleteContact",
+            "nameLocation": "679:13:1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 171,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 168,
+                  "mutability": "mutable",
+                  "name": "account",
+                  "nameLocation": "701:7:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 173,
+                  "src": "693:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 167,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "693:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 170,
+                  "mutability": "mutable",
+                  "name": "deletedContactId",
+                  "nameLocation": "716:16:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 173,
+                  "src": "710:22:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 169,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "710:5:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "692:41:1"
+            },
+            "returnParameters": {
+              "id": 172,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "742:0:1"
+            },
+            "scope": 211,
+            "src": "670:73:1",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 174,
+              "nodeType": "StructuredDocumentation",
+              "src": "749:333:1",
+              "text": "@notice Modify contact information, can only be owner of account addres\n @param account Address of user modifying the contact\n @param modifiedContactId The id of contact to be modified\n @param modifiedContactInfo String containing modified contact information\n isAddressOwner modifier must be provided"
+            },
+            "functionSelector": "c93f5d10",
+            "id": 183,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "modifyContact",
+            "nameLocation": "1096:13:1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 181,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 176,
+                  "mutability": "mutable",
+                  "name": "account",
+                  "nameLocation": "1127:7:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 183,
+                  "src": "1119:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 175,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1119:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 178,
+                  "mutability": "mutable",
+                  "name": "modifiedContactId",
+                  "nameLocation": "1150:17:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 183,
+                  "src": "1144:23:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 177,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1144:5:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 180,
+                  "mutability": "mutable",
+                  "name": "modifiedContactInfo",
+                  "nameLocation": "1191:19:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 183,
+                  "src": "1177:33:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 179,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1177:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1109:107:1"
+            },
+            "returnParameters": {
+              "id": 182,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1225:0:1"
+            },
+            "scope": 211,
+            "src": "1087:139:1",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 184,
+              "nodeType": "StructuredDocumentation",
+              "src": "1232:265:1",
+              "text": "@notice Retrieve data of a specific contact information\n @param account Address of the user you want to retrieve contact\n @param contactId The id of contact you want to retrieve\n @return contactInfo String containing the contact information"
+            },
+            "functionSelector": "6509256f",
+            "id": 193,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getContact",
+            "nameLocation": "1511:10:1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 189,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 186,
+                  "mutability": "mutable",
+                  "name": "account",
+                  "nameLocation": "1530:7:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 193,
+                  "src": "1522:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 185,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1522:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 188,
+                  "mutability": "mutable",
+                  "name": "contactId",
+                  "nameLocation": "1545:9:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 193,
+                  "src": "1539:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 187,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1539:5:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1521:34:1"
+            },
+            "returnParameters": {
+              "id": 192,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 191,
+                  "mutability": "mutable",
+                  "name": "contactInfo",
+                  "nameLocation": "1617:11:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 193,
+                  "src": "1603:25:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 190,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1603:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1602:27:1"
+            },
+            "scope": 211,
+            "src": "1502:128:1",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "anonymous": false,
+            "documentation": {
+              "id": 194,
+              "nodeType": "StructuredDocumentation",
+              "src": "1636:149:1",
+              "text": "@notice Emitted when contact is added\n @param sender The address who added contact\n @param currentContactId The id of added contact"
+            },
+            "id": 200,
+            "name": "ContactAdded",
+            "nameLocation": "1796:12:1",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 199,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 196,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "sender",
+                  "nameLocation": "1817:6:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 200,
+                  "src": "1809:14:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 195,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1809:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 198,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "currentContactId",
+                  "nameLocation": "1831:16:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 200,
+                  "src": "1825:22:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 197,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1825:5:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1808:40:1"
+            },
+            "src": "1790:59:1"
+          },
+          {
+            "anonymous": false,
+            "documentation": {
+              "id": 201,
+              "nodeType": "StructuredDocumentation",
+              "src": "1855:97:1",
+              "text": "@notice Emitted when contact is deleted\n @param sender The address who deleted contact"
+            },
+            "id": 205,
+            "name": "ContactDeleted",
+            "nameLocation": "1963:14:1",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 204,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 203,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "sender",
+                  "nameLocation": "1986:6:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 205,
+                  "src": "1978:14:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 202,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1978:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1977:16:1"
+            },
+            "src": "1957:37:1"
+          },
+          {
+            "anonymous": false,
+            "documentation": {
+              "id": 206,
+              "nodeType": "StructuredDocumentation",
+              "src": "2000:99:1",
+              "text": "@notice Emitted when contact is modified\n @param sender The address who modified contact"
+            },
+            "id": 210,
+            "name": "ContactModified",
+            "nameLocation": "2110:15:1",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 209,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 208,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "sender",
+                  "nameLocation": "2134:6:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 210,
+                  "src": "2126:14:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 207,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2126:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2125:16:1"
+            },
+            "src": "2104:38:1"
+          }
+        ],
+        "scope": 212,
+        "src": "66:2078:1",
+        "usedErrors": []
+      }
+    ],
+    "src": "33:2112:1"
+  },
+  "legacyAST": {
+    "absolutePath": "project:/contracts/interfaces/IContactStorage.sol",
+    "exportedSymbols": {
+      "IContactStorage": [
+        211
+      ]
+    },
+    "id": 212,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 157,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.7",
+          ".0",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:31:1"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IContactStorage",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 211,
+        "linearizedBaseContracts": [
+          211
+        ],
+        "name": "IContactStorage",
+        "nameLocation": "76:15:1",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "documentation": {
+              "id": 158,
+              "nodeType": "StructuredDocumentation",
+              "src": "98:247:1",
+              "text": "@notice Store contact information, can only be owner of account addres\n @param account Address of user storing the contact\n @param contactInfo String containing contact information\n isAddressOwner modifier must be provided"
+            },
+            "functionSelector": "71e48b80",
+            "id": 165,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setContact",
+            "nameLocation": "359:10:1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 163,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 160,
+                  "mutability": "mutable",
+                  "name": "account",
+                  "nameLocation": "378:7:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 165,
+                  "src": "370:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 159,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "370:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 162,
+                  "mutability": "mutable",
+                  "name": "contactInfo",
+                  "nameLocation": "401:11:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 165,
+                  "src": "387:25:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 161,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "387:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "369:44:1"
+            },
+            "returnParameters": {
+              "id": 164,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "422:0:1"
+            },
+            "scope": 211,
+            "src": "350:73:1",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 166,
+              "nodeType": "StructuredDocumentation",
+              "src": "429:236:1",
+              "text": "@notice Delete contact, can only be owner of account addres\n @param account Address of user deleting the contact\n @param deletedContactId The Id of contact to be deleted\n isAddressOwner modifier must be provided"
+            },
+            "functionSelector": "6f5f316a",
+            "id": 173,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "deleteContact",
+            "nameLocation": "679:13:1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 171,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 168,
+                  "mutability": "mutable",
+                  "name": "account",
+                  "nameLocation": "701:7:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 173,
+                  "src": "693:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 167,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "693:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 170,
+                  "mutability": "mutable",
+                  "name": "deletedContactId",
+                  "nameLocation": "716:16:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 173,
+                  "src": "710:22:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 169,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "710:5:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "692:41:1"
+            },
+            "returnParameters": {
+              "id": 172,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "742:0:1"
+            },
+            "scope": 211,
+            "src": "670:73:1",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 174,
+              "nodeType": "StructuredDocumentation",
+              "src": "749:333:1",
+              "text": "@notice Modify contact information, can only be owner of account addres\n @param account Address of user modifying the contact\n @param modifiedContactId The id of contact to be modified\n @param modifiedContactInfo String containing modified contact information\n isAddressOwner modifier must be provided"
+            },
+            "functionSelector": "c93f5d10",
+            "id": 183,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "modifyContact",
+            "nameLocation": "1096:13:1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 181,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 176,
+                  "mutability": "mutable",
+                  "name": "account",
+                  "nameLocation": "1127:7:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 183,
+                  "src": "1119:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 175,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1119:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 178,
+                  "mutability": "mutable",
+                  "name": "modifiedContactId",
+                  "nameLocation": "1150:17:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 183,
+                  "src": "1144:23:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 177,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1144:5:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 180,
+                  "mutability": "mutable",
+                  "name": "modifiedContactInfo",
+                  "nameLocation": "1191:19:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 183,
+                  "src": "1177:33:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 179,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1177:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1109:107:1"
+            },
+            "returnParameters": {
+              "id": 182,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1225:0:1"
+            },
+            "scope": 211,
+            "src": "1087:139:1",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 184,
+              "nodeType": "StructuredDocumentation",
+              "src": "1232:265:1",
+              "text": "@notice Retrieve data of a specific contact information\n @param account Address of the user you want to retrieve contact\n @param contactId The id of contact you want to retrieve\n @return contactInfo String containing the contact information"
+            },
+            "functionSelector": "6509256f",
+            "id": 193,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getContact",
+            "nameLocation": "1511:10:1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 189,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 186,
+                  "mutability": "mutable",
+                  "name": "account",
+                  "nameLocation": "1530:7:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 193,
+                  "src": "1522:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 185,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1522:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 188,
+                  "mutability": "mutable",
+                  "name": "contactId",
+                  "nameLocation": "1545:9:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 193,
+                  "src": "1539:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 187,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1539:5:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1521:34:1"
+            },
+            "returnParameters": {
+              "id": 192,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 191,
+                  "mutability": "mutable",
+                  "name": "contactInfo",
+                  "nameLocation": "1617:11:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 193,
+                  "src": "1603:25:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 190,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1603:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1602:27:1"
+            },
+            "scope": 211,
+            "src": "1502:128:1",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "anonymous": false,
+            "documentation": {
+              "id": 194,
+              "nodeType": "StructuredDocumentation",
+              "src": "1636:149:1",
+              "text": "@notice Emitted when contact is added\n @param sender The address who added contact\n @param currentContactId The id of added contact"
+            },
+            "id": 200,
+            "name": "ContactAdded",
+            "nameLocation": "1796:12:1",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 199,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 196,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "sender",
+                  "nameLocation": "1817:6:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 200,
+                  "src": "1809:14:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 195,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1809:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 198,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "currentContactId",
+                  "nameLocation": "1831:16:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 200,
+                  "src": "1825:22:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 197,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1825:5:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1808:40:1"
+            },
+            "src": "1790:59:1"
+          },
+          {
+            "anonymous": false,
+            "documentation": {
+              "id": 201,
+              "nodeType": "StructuredDocumentation",
+              "src": "1855:97:1",
+              "text": "@notice Emitted when contact is deleted\n @param sender The address who deleted contact"
+            },
+            "id": 205,
+            "name": "ContactDeleted",
+            "nameLocation": "1963:14:1",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 204,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 203,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "sender",
+                  "nameLocation": "1986:6:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 205,
+                  "src": "1978:14:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 202,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1978:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1977:16:1"
+            },
+            "src": "1957:37:1"
+          },
+          {
+            "anonymous": false,
+            "documentation": {
+              "id": 206,
+              "nodeType": "StructuredDocumentation",
+              "src": "2000:99:1",
+              "text": "@notice Emitted when contact is modified\n @param sender The address who modified contact"
+            },
+            "id": 210,
+            "name": "ContactModified",
+            "nameLocation": "2110:15:1",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 209,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 208,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "sender",
+                  "nameLocation": "2134:6:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 210,
+                  "src": "2126:14:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 207,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2126:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2125:16:1"
+            },
+            "src": "2104:38:1"
+          }
+        ],
+        "scope": 212,
+        "src": "66:2078:1",
+        "usedErrors": []
+      }
+    ],
+    "src": "33:2112:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.11+commit.d7f03943.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.5",
+  "updatedAt": "2022-02-23T14:24:23.474Z",
+  "devdoc": {
+    "events": {
+      "ContactAdded(address,uint8)": {
+        "params": {
+          "currentContactId": "The id of added contact",
+          "sender": "The address who added contact"
+        }
+      },
+      "ContactDeleted(address)": {
+        "params": {
+          "sender": "The address who deleted contact"
+        }
+      },
+      "ContactModified(address)": {
+        "params": {
+          "sender": "The address who modified contact"
+        }
+      }
+    },
+    "kind": "dev",
+    "methods": {
+      "deleteContact(address,uint8)": {
+        "params": {
+          "account": "Address of user deleting the contact",
+          "deletedContactId": "The Id of contact to be deleted isAddressOwner modifier must be provided"
+        }
+      },
+      "getContact(address,uint8)": {
+        "params": {
+          "account": "Address of the user you want to retrieve contact",
+          "contactId": "The id of contact you want to retrieve"
+        },
+        "returns": {
+          "contactInfo": "String containing the contact information"
+        }
+      },
+      "modifyContact(address,uint8,string)": {
+        "params": {
+          "account": "Address of user modifying the contact",
+          "modifiedContactId": "The id of contact to be modified",
+          "modifiedContactInfo": "String containing modified contact information isAddressOwner modifier must be provided"
+        }
+      },
+      "setContact(address,string)": {
+        "params": {
+          "account": "Address of user storing the contact",
+          "contactInfo": "String containing contact information isAddressOwner modifier must be provided"
+        }
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "events": {
+      "ContactAdded(address,uint8)": {
+        "notice": "Emitted when contact is added"
+      },
+      "ContactDeleted(address)": {
+        "notice": "Emitted when contact is deleted"
+      },
+      "ContactModified(address)": {
+        "notice": "Emitted when contact is modified"
+      }
+    },
+    "kind": "user",
+    "methods": {
+      "deleteContact(address,uint8)": {
+        "notice": "Delete contact, can only be owner of account addres"
+      },
+      "getContact(address,uint8)": {
+        "notice": "Retrieve data of a specific contact information"
+      },
+      "modifyContact(address,uint8,string)": {
+        "notice": "Modify contact information, can only be owner of account addres"
+      },
+      "setContact(address,string)": {
+        "notice": "Store contact information, can only be owner of account addres"
+      }
+    },
+    "version": 1
+  }
+}
