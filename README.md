@@ -1,0 +1,1 @@
+Contract is deployed on Binance Smart Chain - Testnet
